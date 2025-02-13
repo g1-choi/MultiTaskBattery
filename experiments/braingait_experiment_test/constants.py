@@ -5,7 +5,7 @@ import os
 import MultiTaskBattery as mtb
 
 #Necessary definitions for the experiment:
-exp_name = 'example_experiment' # name of the experiment
+exp_name = 'braingait_experiment_test' # name of the experiment
 
 #UNCOMMENT THIS FOR SCANNING
 #response_keys    = ['y', 'g', 'r', 'm'] # scanner keys
@@ -34,7 +34,7 @@ eye_tracker = False                                     # do you want to do  eye
 
 # Running in debug mode?
 debug = False                                           # set to True for
-# debugging
+# debugging, set to true won't show the dialog for you to enter subject info
 
 # Screen settings for subject display
 screen = {}

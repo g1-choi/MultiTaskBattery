@@ -11,7 +11,7 @@ from psychopy import visual, sound, core, event
 import MultiTaskBattery.utils as ut
 from ast import literal_eval
 from copy import deepcopy
-from moviepy import AudioFileClip
+from moviepy.audio.io import AudioFileClip
 import gc
 
 
