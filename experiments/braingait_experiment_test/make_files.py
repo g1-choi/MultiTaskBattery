@@ -5,12 +5,15 @@ import MultiTaskBattery.task_file as tf
 import MultiTaskBattery.utils as ut
 import constants as const
 
-tasks = ['n_back', 'action_observation','finger_sequence',
-        'verb_generation', 'spatial_navigation','nonword_reading','demand_grid',
-         'flexion_extension','visual_search','sentence_reading',
-         'rest']
-#things that we would like to have but doesn't seem to be there: arithmatic,
-# n_back_verbal, n_back_pic (this might be the same as the currenet n_back?)
+tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
+         'visual_search','spatial_navigation','semantic_prediction',
+         'verb_generation','n_back','flexion_extension_glutes',
+         'flexion_extension','auditory_narrative','sentence_reading','oddball']
+#the task won't be generated the same order as the input order here and
+# that's on purpose bc in task_file.make_run_file(), it shuffles the row,
+# so that 2 runs are not in the same order either.
+# #things that we would like to have but doesn't seem to be there: arithmatic,
+# n_back_verbal
 
 num_runs = 2  # Number of imaging runs
 
@@ -49,7 +52,7 @@ for task in tasks:
 # Generate run and task files
 for r in range(1, num_runs+1): #python is 0 indexing
     tfiles = [f'{task}_{r:02d}.tsv' for task in tasks]
-    T = tf.make_run_file(tasks, tfiles, instruction_dur=15)
+    T = tf.make_run_file(tasks, tfiles, instruction_dur=5)
     T.to_csv(const.run_dir / f'run_{r:02d}.tsv', sep='\t', index=False)
 
     # Generate a target file for each run
@@ -61,6 +64,9 @@ for r in range(1, num_runs+1): #python is 0 indexing
         args = {}
         if myTask.name not in ut.tasks_without_run_number:
             args.update({'run_number': r})
+
+        if myTask.name == 'movie': #specify a condition, do romance movie only
+            args.update({'condition': 'romance'})
 
         # Make task file
         myTask.make_task_file(file_name=tfile, **args) #this meaks the task
