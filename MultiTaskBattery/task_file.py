@@ -953,6 +953,24 @@ class FlexionExtension(TaskFile):
             trial_info.to_csv(self.task_dir / self.name / file_name, sep='\t', index=False)
         return trial_info
 
+#same implementation as flex/ext toe, still have its own class in order to
+# have a different class name which will be initialized here and again in
+# task_blocks.py to give different instructions, as well as different
+# attribute of self.name for task class look up
+class FlexionExtension_Glutes(FlexionExtension):
+    def __init__(self, const):
+        super().__init__(const)
+        self.name = 'flexion_extension_glutes'
+
+    def make_task_file(self,
+                        task_dur =  30,
+                        trial_dur = 30,
+                        iti_dur   = 0,
+                        stim_dur = 2,
+                        file_name = None):
+        return super().make_task_file(task_dur, trial_dur, iti_dur, stim_dur,
+                                      file_name)
+
 class SemanticPrediction(TaskFile):
     def __init__(self, const):
         super().__init__(const)

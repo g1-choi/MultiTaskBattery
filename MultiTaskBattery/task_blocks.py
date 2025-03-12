@@ -1089,9 +1089,29 @@ class FlexionExtension(Task):
 
         # No response is expected in this task, so return trial as is
         return trial
-    
-    #semantic prediction runs (slight bug for response feedback: last word is not synced with last word in task_file..)
 
+
+class FlexionExtension_Glutes(FlexionExtension):
+    """
+    Flexion extension of the glutes. Exact same implementation as Flexion
+    Extention of toes, except display a different instruction. So other
+    classes are not defined here bc by default will use super class
+    definition.
+    """
+
+    def __init__(self, info, screen, ttl_clock, const, subj_id):
+        super().__init__(info, screen, ttl_clock, const, subj_id)
+        self.feedback_type = 'None'
+
+    def display_instructions(self):
+        self.instruction_text = f"{self.descriptive_name} Task \n\n Flex and " \
+                                f"extend your right and left glutes"
+        instr_visual = visual.TextStim(self.window, text=self.instruction_text,
+                                       color=[-1, -1, -1])
+        instr_visual.draw()
+        self.window.flip()
+
+#semantic prediction runs (slight bug for response feedback: last word is not synced with last word in task_file..)
 class SemanticPrediction(Task):
 
     """
