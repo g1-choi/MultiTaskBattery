@@ -10,7 +10,9 @@ class TTLClock:
         self.clock      = core.Clock() #
         self.ttl_count      = 0    # the number of ttl pulses
         self.ttl_time       = 0    # time stamp of the last incoming ttl pulse
-        self.ttl_button = 't'  # the button used for simulating a ttl pulse
+        self.ttl_button = 'equal'  # the button used for simulating a ttl
+        # pulse,in MRRC, pressing the ttl_pulse button is equivalent to typing =
+        # the key name returned from getKeys for = is 'equal' instead of '='
 
     def reset(self, start_time=0):
         """ resets the clock and ttl-counter
@@ -64,6 +66,14 @@ class TTLClock:
         """
         # get all the ttl pulses in the buffer
         keys = event.getKeys([self.ttl_button], timeStamped=self.clock)
+        # SL: the first arg should be a list of keys to check for, if it's None
+        # will check for everything, note that if i change self.ttl_button to
+        # a list it won't work bc here it wraps that attribute into a list
+        # again so the key to check will be [[key]] which likely is not legit
+        # argument style and might cause return to be empty
+        # To see what key was pressed and their key names. Can run in console
+        # event.getKeys(), this wlll print out all the recent key presses
+        # that were detected since the last call of event.GetKeys()
 
         # checks if the pressed key is the key used as the ttl pulse
         for k in keys:
