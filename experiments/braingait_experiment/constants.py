@@ -20,7 +20,8 @@ response_fingers = ['Pinky', 'Ring','Middle', 'Index']
 exp_dir = Path(os.path.dirname(os.path.realpath(__file__)))   # where the experiment code is stored
 task_dir = exp_dir / "task_files"  # contains target files for the task
 run_dir    = exp_dir / "run_files"     # contains run files for each session
-data_dir   = exp_dir / "data_testSL"          # This is where the result files are being saved
+data_dir   = exp_dir / "data"          # This is where the result files are
+# being saved
 
 # do run_file_name as a formated string
 default_run_filename = 'run_01.tsv'
