@@ -7,7 +7,7 @@ import constants as const
 
 tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
          'visual_search','spatial_navigation','semantic_prediction',
-         'verb_generation','n_back','flexion_extension_glutes',
+         'verb_generation','n_back','contract_relax_glutes',
          'flexion_extension','auditory_narrative','sentence_reading','oddball']
 #the task won't be generated the same order as the input order here and
 # that's on purpose bc in task_file.make_run_file(), it shuffles the row,

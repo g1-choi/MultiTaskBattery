@@ -44,4 +44,5 @@ faux_pas	FauxPas	faux pas	faux_pas	"stories of (potential) faux pas situations, 
 frith_happe	FrithHappe	triangle	frith_happe	"video clips of triangle animations, participants must determine whether interaction was random, goal-directed or a mentalizing interaction"	"Livingston, L.A. et al. (2021) ‘Further developing the Frith–Happé animations: A quicker, more objective, and web-based test of theory of mind for autistic and neurotypical adults’, Autism Research, 14(9), pp. 1905–1912. Available at: https://doi.org/10.1002/aur.2575.."	"random,gd,tom"
 liking	Liking	liking	liking	"video clips of people interacting, participants must determine if the interaction was positive or negative"	"Heerey, E.A. and Gilder, T.S.E. (2019) ‘The subjective value of a smile alters social behaviour’, PLoS ONE, 14(12), pp. 1–19. Available at: https://doi.org/10.1371/journal.pone.0225284."	"like,dislike"
 pong	Pong	pong	pomg	pong game		
-flexion_extension_glutes	FlexionExtension_Glutes	glute_flexion_extension	flexexten_glu	"alternating periods of flexing/extending glutes"
+contract_relax_glutes	ContractRelax_Glutes	contract_relax_glutes	contract_relax_glu	"alternating periods of
+contracting/relaxing glutes"

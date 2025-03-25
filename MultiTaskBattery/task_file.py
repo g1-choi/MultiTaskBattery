@@ -996,10 +996,10 @@ class FlexionExtension(TaskFile):
 # have a different class name which will be initialized here and again in
 # task_blocks.py to give different instructions, as well as different
 # attribute of self.name for task class look up
-class FlexionExtension_Glutes(FlexionExtension):
+class ContractRelax_Glutes(TaskFile):
     def __init__(self, const):
         super().__init__(const)
-        self.name = 'flexion_extension_glutes'
+        self.name = 'contract_relax_glutes'
 
     def make_task_file(self,
                         task_dur =  30,
@@ -1007,8 +1007,33 @@ class FlexionExtension_Glutes(FlexionExtension):
                         iti_dur   = 0,
                         stim_dur = 2,
                         file_name = None):
-        return super().make_task_file(task_dur, trial_dur, iti_dur, stim_dur,
-                                      file_name)
+        n_trials = int(np.floor(task_dur / (trial_dur + iti_dur)))
+        trial_info = []
+
+        t = 0
+
+        for n in range(n_trials):
+            trial = {}
+            trial['trial_num'] = n
+            trial['trial_dur'] = trial_dur
+            trial['iti_dur'] = iti_dur
+            trial['stim'] = "contract relax"
+            trial['stim_dur'] = stim_dur
+            trial['display_trial_feedback'] = False
+            trial['trial_type'] = 'None'  # as there are no true or false
+            # responses
+            trial['start_time'] = t
+            trial['end_time'] = t + trial_dur + iti_dur
+            trial_info.append(trial)
+
+            # Update for next trial:
+            t = trial['end_time']
+
+        trial_info = pd.DataFrame(trial_info)
+        if file_name is not None:
+            trial_info.to_csv(self.task_dir / self.name / file_name, sep='\t',
+                              index=False)
+        return trial_info
 
 class SemanticPrediction(TaskFile):
     def __init__(self, const):

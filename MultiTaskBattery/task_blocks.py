@@ -1093,9 +1093,9 @@ class FlexionExtension(Task):
         return trial
 
 
-class FlexionExtension_Glutes(FlexionExtension):
+class ContractRelax_Glutes(FlexionExtension):
     """
-    Flexion extension of the glutes. Exact same implementation as Flexion
+    Contract and relax of the glutes. Exact same implementation as Flexion
     Extention of toes, except display a different instruction. So other
     classes are not defined here bc by default will use super class
     definition.
@@ -1106,8 +1106,8 @@ class FlexionExtension_Glutes(FlexionExtension):
         self.feedback_type = 'None'
 
     def display_instructions(self):
-        self.instruction_text = f"{self.descriptive_name} Task \n\n Flex and " \
-                                f"extend your right and left glutes"
+        self.instruction_text = f"{self.descriptive_name} Task \n\n Contract " \
+                                f"and relax your right and left glutes"
         instr_visual = visual.TextStim(self.window, text=self.instruction_text,
                                        color=[-1, -1, -1])
         instr_visual.draw()
