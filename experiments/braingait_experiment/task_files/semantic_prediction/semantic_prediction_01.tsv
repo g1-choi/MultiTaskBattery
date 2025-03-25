@@ -1,0 +1,3 @@
+key_true	key_false	trial_num	hand	trial_dur	sentence_dur	sentence	trial_type	last_word	display_trial_feedback	start_time	end_time
+1	2	0	right	15	2	A|Dalmatian|dog|is|recognized|by|its|black|and|white	0	fate	True	0	15
+1	2	1	right	15	2	A|black|European|crow|is|sometimes|called|a	0	solution	True	15	30
