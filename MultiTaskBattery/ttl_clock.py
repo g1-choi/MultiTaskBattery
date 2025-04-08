@@ -73,7 +73,9 @@ class TTLClock:
         # argument style and might cause return to be empty
         # To see what key was pressed and their key names. Can run in console
         # event.getKeys(), this wlll print out all the recent key presses
-        # that were detected since the last call of event.GetKeys()
+        # that were detected since the last call of event.GetKeys() but this
+        # seems to work only if we have a UI open and key press happens when
+        # focusing on the UI window
 
         # checks if the pressed key is the key used as the ttl pulse
         for k in keys:

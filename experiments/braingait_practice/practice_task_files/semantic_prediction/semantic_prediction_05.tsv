@@ -1,0 +1,2 @@
+key_true	key_false	trial_num	hand	trial_dur	sentence_dur	sentence	trial_type	last_word	display_trial_feedback	start_time	end_time
+1	2	0	right	15	2	A|crowd|gathered|to|see|the|barn's|newborn	1	calf	True	0	15

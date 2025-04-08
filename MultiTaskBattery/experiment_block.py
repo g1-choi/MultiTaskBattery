@@ -116,7 +116,7 @@ class Experiment:
         ut.dircheck(subj_dir) # making sure the directory is created!
         self.run_data_file = self.const.data_dir / self.subj_id / f"{self.subj_id}.tsv"
 
-    def run(self):
+    def run(self, isPractice = False):
         """
         run a run of the experiment
         """
@@ -139,9 +139,15 @@ class Experiment:
             # Take the task data from the run_info dataframe
             r_data = self.run_info.iloc[t_num].copy()
 
-            # wait till it's time to start the task
-            r_data['real_start_time'],r_data['start_ttl'],r_data['start_ttl_time'] = self.ttl_clock.wait_until(r_data.start_time)
-
+            if not isPractice:
+                # wait till it's time to start the task
+                r_data['real_start_time'],r_data['start_ttl'],r_data['start_ttl_time'] = self.ttl_clock.wait_until(r_data.start_time)
+            else: #for practice just ignore the set start/end time, use the space key as cue to move forward.
+                r_data['real_start_time'], r_data['start_ttl'], r_data[
+                    'start_ttl_time'] = self.ttl_clock.get_time(), \
+                                        self.ttl_clock.ttl_count, \
+                                        self.ttl_clock.get_time() - \
+                                        self.ttl_clock.ttl_time
             ## sending a message to the edf file specifying task name
             if self.const.eye_tracker:
                 pl.sendMessageToFile(f"task_name: {task.name} start_track: {pl.currentUsec()} real start time {r_data.real_start_time} TR count {ttl_clock.ttl_count}")
@@ -149,10 +155,16 @@ class Experiment:
             # display the instruction text for the task. (instructions are task specific)
             task.display_instructions()
 
-            # wait for a time period equal to instruction duration
-            self.ttl_clock.wait_until(r_data.start_time + r_data.instruction_dur)
-
-            # Run the task (which saves its data to the target)
+            if not isPractice:
+                # wait for a time period equal to instruction duration
+                self.ttl_clock.wait_until(r_data.start_time + r_data.instruction_dur)
+            else:
+                spacePressed = False
+                while not spacePressed:
+                    keys = event.getKeys(['space']) #look for space presses
+                    if 'space' in keys:
+                        spacePressed = True #quit the while loop and continue
+                #for practice, wait for a space key press
             task.start_time = self.ttl_clock.get_time()
             r_data['acc'],r_data['rt'] = task.run()
 
@@ -162,8 +174,8 @@ class Experiment:
             self.screen.fixation_cross()
 
             # If last task, wait until the endtime for the last task, which for imaging could be longer than the task duration
-            # Note that endtime is not used for any task but the last one 
-            if t_num == len(self.task_obj_list)-1:
+            # Note that endtime is not used for any task but the last one
+            if t_num == len(self.task_obj_list)-1 and (not isPractice):
                 self.ttl_clock.wait_until(r_data.end_time)
 
         # Stop the eyetracker
@@ -175,7 +187,6 @@ class Experiment:
         # save the run data to the run file
         run_data.insert(0,'run_num',[self.run_number]*len(run_data))
         ut.append_data_to_file(self.run_data_file, run_data )
-
 
         for task in self.task_obj_list:
             task.save_data(self.subj_id, self.run_number)

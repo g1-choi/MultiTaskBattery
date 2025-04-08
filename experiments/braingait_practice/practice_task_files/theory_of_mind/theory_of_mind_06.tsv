@@ -1,0 +1,5 @@
+key_true	key_false	trial_type	trial_num	hand	trial_dur	iti_dur	story	question	condition	answer	story_dur	question_dur	display_trial_feedback	start_time	end_time
+1	2	1	0	right	14	1	At the time a portrait was drawn of a  young man, he had short brown hair and  no facial hair. Now the man's hair is  long and gray and so is his beard.  	"Today the length of the man's hair 
+is long.
+
+True or False "	photo	True	10	4	True	0	15
