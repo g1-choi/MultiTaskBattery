@@ -1,0 +1,3 @@
+key_true	key_false	trial_num	hand	trial_dur	sentence_dur	sentence	trial_type	last_word	display_trial_feedback	start_time	end_time
+1	2	0	right	15	2	A|gardener,|Harry|likes|to|fertilize|plants|with	0	tip	True	0	15
+1	2	1	right	15	2	A|gas|lamp|is|always|a|good|source|of	1	light	True	15	30

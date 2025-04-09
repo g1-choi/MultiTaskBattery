@@ -1,0 +1,5 @@
+key_true	key_false	trial_type	trial_num	hand	trial_dur	iti_dur	story	question	condition	answer	story_dur	question_dur	display_trial_feedback	start_time	end_time
+1	2	0	0	right	14	1	John told Mary that he had lost his keys. The  two of them searched the house with no luck.  Then Mary went outside to look in the car.  Suddenly John noticed his keys behind the sofa.	"By the time Mary comes in, John 
+doesn't know where his keys are.
+
+True or False "	belief	False	10	4	True	0	15

@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0,'/Users/mac/Library/CloudStorage/OneDrive-UniversityofPittsburgh/SML/Projects/BrainGaitProject/MultiTaskBattery/')
 import MultiTaskBattery.task_file as tf
 import MultiTaskBattery.utils as ut
-import constants as const
+import constants_practice as const
 
 #TODO: spatial navigation cannot be shorter than 30s, movie, StrangeStories, FrithHappe, Liking
 # also can't be shorter then 30 since the trial_dur is 30 (1rep is min 30s)
@@ -19,7 +19,9 @@ tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
 # #things that we would like to have but doesn't seem to be there: arithmatic,
 # n_back_verbal
 
-num_runs = 2  # Number of imaging runs, = 1, do only 1 practice, generate a
+start_run_num = 5 #start at run5, inclusive, and go up to run [5,
+# 5+num_runs], in this example, [5,9]
+num_runs = 5  # Number of imaging runs, = 1, do only 1 practice, generate a
 # few just to have extra options but in reality we won't use them
 
 # Ensure task and run directories exist
@@ -55,15 +57,19 @@ for task in tasks:
 # number (e.g., movie clips have a specific order for each run)
 
 # Generate run and task files
-for r in range(5, 5+num_runs): #python is 0 indexing, range (a,b) = [a,b),
-    # exclusive in 1 end. Start with 5 to have some gap and generate
-    # different simulus than the the actual tasks (1,2)
+for r in range(start_run_num, start_run_num+num_runs): #python is 0 indexing, range (a,b) = [a,b),
+    # exclusive in 1 end. Start with 4 to generate
+    # different simulus than the the actual tasks (1,2) + 3,4 will be generated
+    # for the actual task as a backup, in case we need 2 more randomization
+    # due to issues during the scan
     tfiles = [f'{task}_{r:02d}.tsv' for task in tasks]
 
     # Generate a target file for each run
     for task, tfile in zip(tasks, tfiles):
-        if task == 'movie' or task == 'spatial_navigation':
-            #these are minimum 30s long
+        if task in ['movie','spatial_navigation','contract_relax_glutes','flexion_extension','auditory_narrative']:
+            #these are minimum 30s long bc each task go by trials and these
+            # have trials length as 30, any task_dur shorter will generate no
+            # trial and empty.tsv file which will cause an error
             T = tf.make_run_file([task], tfile, instruction_dur=600,
                                  task_dur=30)
         else:

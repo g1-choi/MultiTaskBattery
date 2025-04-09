@@ -15,7 +15,8 @@ tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
 # #things that we would like to have but doesn't seem to be there: arithmatic,
 # n_back_verbal
 
-num_runs = 2  # Number of imaging runs
+num_runs = 4  # Number of imaging runs, in reality only need 2, but generate
+# 4 just in case we need extras
 
 # Ensure task and run directories exist
 ut.dircheck(const.run_dir)

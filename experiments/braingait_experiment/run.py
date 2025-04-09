@@ -23,7 +23,8 @@ def main(subj_id):
     my_Exp = exp_block.Experiment(const, subj_id=subj_id)
 
     while True:
-        my_Exp.confirm_run_info()
+        my_Exp.confirm_run_info()#when run_info window is up, click cancel in
+        # the dialog or press ESC will quit the program
         my_Exp.init_run()
         my_Exp.run()
     return

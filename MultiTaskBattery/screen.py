@@ -14,7 +14,10 @@ class Screen:
         """
         self.fullscr  = const['fullscr']
         self.units    = 'deg'
-        self.color    = '#808080'
+        if 'color' in const:
+            self.color = const['color']
+        else:
+            self.color    = '#808080'
         self.size     = const['size'] #[800, 800] #[1440, 900]
         self.distance = 57.0
         self.width    = 30.0
