@@ -6,6 +6,7 @@ sys.path.insert(0,
                 '/Users/mac/Library/CloudStorage/OneDrive-UniversityofPittsburgh/SML/Projects/BrainGaitProject/MultiTaskBattery/')
 
 import MultiTaskBattery.experiment_block as exp_block
+from MultiTaskBattery.screen import Screen
 import constants_rest as const #this will import first found on the search path,
 # which i'm unsure which one will be imported, maybe it prioritize things in
 # the same folder first?
@@ -25,6 +26,7 @@ def main(subj_id):
     # '/Users/mac/Library/CloudStorage/OneDrive-UniversityofPittsburgh/SML
     # /Projects/BrainGaitProject/MultiTaskBattery')
     my_Exp = exp_block.Experiment(const, subj_id=subj_id)
+    my_Exp.screen = Screen(const.screen)
     my_Exp.screen.fixation_cross()
 
     spacePressed = False

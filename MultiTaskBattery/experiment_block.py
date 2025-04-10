@@ -32,9 +32,9 @@ class Experiment:
         self.run_number = 0
         self.const = const
         self.ttl_clock = TTLClock()
-        # open screen and display fixation cross
-        ### set the resolution of the subject screen here:
-        self.screen = Screen(const.screen)
+        # # open screen and display fixation cross
+        # ### set the resolution of the subject screen here:
+        # self.screen = Screen(const.screen)
 
         # connect to the eyetracker already
         if self.const.eye_tracker:
@@ -73,6 +73,10 @@ class Experiment:
                 self.run_number     = int(inputDlg.data[1])
                 self.run_filename   = str(inputDlg.data[2])
                 self.wait_ttl       = bool(inputDlg.data[3])
+                # # open screen and display fixation cross
+                # ### set the resolution of the subject screen here:
+                self.screen = Screen(self.const.screen)
+
             else:
                 sys.exit()
 
