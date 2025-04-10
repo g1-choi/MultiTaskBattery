@@ -34,6 +34,9 @@ class Experiment:
         self.ttl_clock = TTLClock()
         # # open screen and display fixation cross
         # ### set the resolution of the subject screen here:
+        #full screen mode,this will block access to the run_info popup and we
+        # will be stuck. To work around that, only initiate the screen after 
+        # run_info has been entered and user clicked ok.
         # self.screen = Screen(const.screen)
 
         # connect to the eyetracker already
