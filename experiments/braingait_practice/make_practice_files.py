@@ -5,10 +5,9 @@ import MultiTaskBattery.task_file as tf
 import MultiTaskBattery.utils as ut
 import constants_practice as const
 
-#TODO: spatial navigation cannot be shorter than 30s, movie, StrangeStories, FrithHappe, Liking
+#Note: spatial navigation cannot be shorter than 30s, movie, StrangeStories,
+# FrithHappe, Liking, 'spatial_navigation','contract_relax_glutes','flexion_extension','auditory_narrative'
 # also can't be shorter then 30 since the trial_dur is 30 (1rep is min 30s)
-# Movie, spatial navigation (imaging going through your room), probably
-# doens't need to practice anyway?
 tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
          'visual_search','spatial_navigation','semantic_prediction',
          'verb_generation','n_back','contract_relax_glutes',
