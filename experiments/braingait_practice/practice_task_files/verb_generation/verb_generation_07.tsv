@@ -1,7 +1,7 @@
 trial_num	trial_type	trial_dur	iti_dur	start_time	end_time	stim	display_trial_feedback
-0	read	2	0.5	0.0	2.5	book        	False
-1	read	2	0.5	2.5	5.0	ground      	False
-2	read	2	0.5	5.0	7.5	weed        	False
-3	generate	2	0.5	7.5	10.0	carrot      	False
-4	generate	2	0.5	10.0	12.5	finger      	False
-5	generate	2	0.5	12.5	15.0	trousers   	False
+0	read	2	0.5	0.0	2.5	necklace    	False
+1	read	2	0.5	2.5	5.0	couch       	False
+2	read	2	0.5	5.0	7.5	car         	False
+3	generate	2	0.5	7.5	10.0	helicopter  	False
+4	generate	2	0.5	10.0	12.5	plug        	False
+5	generate	2	0.5	12.5	15.0	sweater     	False

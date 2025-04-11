@@ -1,2 +1,2 @@
 task_name	task_code	task_file	instruction_dur	start_time	end_time
-n_back	nbko	n_back_05.tsv	600	0	615
+n_back	nbko	n_back_05.tsv	5	0	20

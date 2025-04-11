@@ -1,2 +1,2 @@
 task_name	task_code	task_file	instruction_dur	start_time	end_time
-verb_generation	vrbgn-wrdrd	verb_generation_05.tsv	600	0	615
+verb_generation	vrbgn-wrdrd	verb_generation_05.tsv	5	0	20
