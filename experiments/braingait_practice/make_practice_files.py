@@ -90,7 +90,8 @@ for r in range(start_run_num, start_run_num+num_runs): #python is 0 indexing, ra
         if myTask.name not in ut.tasks_without_run_number:
             args.update({'run_number': r})
 
-        if myTask.name == 'movie' or myTask.name == 'spatial_navigation':
+        if myTask.name in ['movie','spatial_navigation','contract_relax_glutes',
+                     'flexion_extension','auditory_narrative']:
             args.update({'task_dur': 30}) #movie and spatial have to be 30s
         else:
             args.update({'task_dur': 15})  # for all practice tasks make it 15s long

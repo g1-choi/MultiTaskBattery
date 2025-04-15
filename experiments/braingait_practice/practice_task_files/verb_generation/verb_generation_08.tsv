@@ -1,7 +1,7 @@
 trial_num	trial_type	trial_dur	iti_dur	start_time	end_time	stim	display_trial_feedback
-0	read	2	0.5	0.0	2.5	cup         	False
-1	read	2	0.5	2.5	5.0	game        	False
-2	read	2	0.5	5.0	7.5	boot        	False
-3	generate	2	0.5	7.5	10.0	owl         	False
-4	generate	2	0.5	10.0	12.5	flag        	False
-5	generate	2	0.5	12.5	15.0	duck        	False
+0	read	2	0.5	0.0	2.5	paintbrush  	False
+1	read	2	0.5	2.5	5.0	ground      	False
+2	read	2	0.5	5.0	7.5	machine     	False
+3	generate	2	0.5	7.5	10.0	wineglass   	False
+4	generate	2	0.5	10.0	12.5	brush       	False
+5	generate	2	0.5	12.5	15.0	suit        	False
