@@ -127,7 +127,8 @@ class Experiment:
         """
         run a run of the experiment
         """
-        print(f"Running the experiment - run {self.run_number}")
+        print(f"Running the experiment - run {self.run_number}, Practice "
+              f"mode: {isPractice}")
         self.screen.fixation_cross()
         self.ttl_clock.reset()
         self.ttl_clock.wait_for_first_ttl(wait = self.wait_ttl)

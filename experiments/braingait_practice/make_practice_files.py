@@ -5,10 +5,9 @@ import MultiTaskBattery.task_file as tf
 import MultiTaskBattery.utils as ut
 import constants_practice as const
 
-#TODO: spatial navigation cannot be shorter than 30s, movie, StrangeStories, FrithHappe, Liking
+#Note: spatial navigation cannot be shorter than 30s, movie, StrangeStories,
+# FrithHappe, Liking, 'spatial_navigation','contract_relax_glutes','flexion_extension','auditory_narrative'
 # also can't be shorter then 30 since the trial_dur is 30 (1rep is min 30s)
-# Movie, spatial navigation (imaging going through your room), probably
-# doens't need to practice anyway?
 tasks = ['movie','theory_of_mind','action_observation','finger_sequence',
          'visual_search','spatial_navigation','semantic_prediction',
          'verb_generation','n_back','contract_relax_glutes',
@@ -70,10 +69,10 @@ for r in range(start_run_num, start_run_num+num_runs): #python is 0 indexing, ra
             #these are minimum 30s long bc each task go by trials and these
             # have trials length as 30, any task_dur shorter will generate no
             # trial and empty.tsv file which will cause an error
-            T = tf.make_run_file([task], tfile, instruction_dur=600,
+            T = tf.make_run_file([task], tfile, instruction_dur=5,
                                  task_dur=30)
         else:
-            T = tf.make_run_file([task], tfile, instruction_dur=600,
+            T = tf.make_run_file([task], tfile, instruction_dur=5,
                                  task_dur=15)
         # set a very long time for instruction, 10mins, and wait for key press
         # instead. Task duration is half the usual length for practice, this arg
@@ -112,6 +111,3 @@ for r in range(start_run_num, start_run_num+num_runs): #python is 0 indexing, ra
         # story/image/audio, then task_dur = duration is the task block.
         # e.g., N-Back each image is shown for 2s (trial_dur = 2) and we keep
         # showing images for 30s (task_dur = 30)
-
-#TODO: repeat the same task? --> make each their own run file, if need to
-# repeat just rerun the same file again.

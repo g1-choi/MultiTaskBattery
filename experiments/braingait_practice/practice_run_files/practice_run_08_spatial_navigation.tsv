@@ -1,2 +1,2 @@
 task_name	task_code	task_file	instruction_dur	start_time	end_time
-spatial_navigation	spatialnav	spatial_navigation_08.tsv	600	0	630
+spatial_navigation	spatialnav	spatial_navigation_08.tsv	5	0	35

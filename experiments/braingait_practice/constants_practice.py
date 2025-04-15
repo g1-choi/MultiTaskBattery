@@ -30,7 +30,7 @@ data_dir   = exp_dir / "practice_data"          # This is where the result files
 # tasks are randomized run 5 and 6 (the stimulus sometimes are generated
 # based on run-number, this avoids using same stimulus as the actual scanner
 # task)
-default_run_filename = 'practice_run_05.tsv'
+default_run_filename = 'practice_run_05_movie.tsv'
 
 # This is were the stimuli for the different task are stored, 2 directories
 # above this files

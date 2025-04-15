@@ -1,2 +1,2 @@
 task_name	task_code	task_file	instruction_dur	start_time	end_time
-semantic_prediction	sempred	semantic_prediction_08.tsv	600	0	615
+semantic_prediction	sempred	semantic_prediction_08.tsv	5	0	20
